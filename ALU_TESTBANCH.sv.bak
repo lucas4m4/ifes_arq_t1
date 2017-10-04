@@ -6,6 +6,10 @@ module testebench_alu();
 
 alu u1(a, b, ALUControl, Result, ALUFlags);
 
+ initial  begin
+      $dumpfile ("file_teste.vcd"); 
+      $dumpvars; 
+    end 
 initial begin
     $monitor("  %b [%b] %b = %b  [%b]", a, ALUControl, b, Result, ALUFlags);
 
@@ -21,10 +25,7 @@ initial begin
     a <= 'h F0F0_F0F0; b <= 'h 0F0F_0F0F; ALUControl <= 'b 11;
     #100;
   end
-  initial  begin
-      $dumpfile ("file_teste.vcd"); 
-      $dumpvars; 
-    end 
+
 endmodule
 
 
